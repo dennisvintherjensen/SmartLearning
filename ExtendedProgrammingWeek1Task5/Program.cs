@@ -29,15 +29,11 @@ namespace ExtendedProgrammingWeek1Task5
 
         static bool IsPalindrome(string input)
         {
-            int midSentence = (int)decimal.Round(input.Length / 2);
+            // If input has an odd number, then we do not need to check the char in the middle. Therefore we round down.
+            int midSentence = (int)decimal.Floor(input.Length / 2);
 
-            for (int i = 0; i <= input.Length; i++)
+            for (int i = 0; i <= midSentence; i++)
             {
-                if (i > midSentence)
-                {
-                    break;
-                }
-
                 char left = input[i];
 
                 char right = input[input.Length - 1 - i];
@@ -53,6 +49,7 @@ namespace ExtendedProgrammingWeek1Task5
 
         static string CleanAndLowercaseInput(string input)
         {
+            // Remove all chars that are not letters or numbers. Then lowercase.
             return Regex.Replace(input, "[^a-z0-9]", "", RegexOptions.IgnoreCase).ToLower();
         } 
 
