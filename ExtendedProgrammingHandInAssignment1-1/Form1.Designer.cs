@@ -35,6 +35,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.NameInput = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.MessageLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // NamesListBox
@@ -71,7 +73,7 @@
             // 
             this.AddNameButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.AddNameButton.Location = new System.Drawing.Point(118, 115);
-            this.AddNameButton.Margin = new System.Windows.Forms.Padding(4);
+            this.AddNameButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.AddNameButton.Name = "AddNameButton";
             this.AddNameButton.Size = new System.Drawing.Size(137, 33);
             this.AddNameButton.TabIndex = 4;
@@ -95,7 +97,7 @@
             // 
             this.NameInput.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.NameInput.Location = new System.Drawing.Point(118, 68);
-            this.NameInput.Margin = new System.Windows.Forms.Padding(4);
+            this.NameInput.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.NameInput.Name = "NameInput";
             this.NameInput.Size = new System.Drawing.Size(378, 29);
             this.NameInput.TabIndex = 1;
@@ -112,11 +114,30 @@
             this.label3.Text = "To delete a name: Select the name and click Delete";
             this.label3.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(1131, 673);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(0, 15);
+            this.label4.TabIndex = 9;
+            // 
+            // MessageLabel
+            // 
+            this.MessageLabel.AutoSize = true;
+            this.MessageLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.MessageLabel.Location = new System.Drawing.Point(83, 333);
+            this.MessageLabel.Name = "MessageLabel";
+            this.MessageLabel.Size = new System.Drawing.Size(0, 21);
+            this.MessageLabel.TabIndex = 10;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.MessageLabel);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.NameInput);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -140,6 +161,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox NameInput;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label MessageLabel;
     }
 }
 

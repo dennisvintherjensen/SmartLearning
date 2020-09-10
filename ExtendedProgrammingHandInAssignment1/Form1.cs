@@ -18,6 +18,10 @@ namespace ExtendedProgrammingHandInAssignment1
         public Form1()
         {
             InitializeComponent();
+
+            MessageLabel.Visible = false;
+
+            MessageLabel.ForeColor = Color.Red;
         }
 
         /// <summary>
@@ -35,9 +39,6 @@ namespace ExtendedProgrammingHandInAssignment1
                     NamesListBox.Items.Add($"Pos. {i}: {names[i]}");
                 }
             }
-
-            // Could also be done using LINQ:
-            // NamesListBox.Items.AddRange(names.Where(name => !string.IsNullOrEmpty(name)).ToArray());
         }
 
         /// <summary>
@@ -68,16 +69,32 @@ namespace ExtendedProgrammingHandInAssignment1
         /// <param name="index"></param>
         private void RemoveNameAt(int index)
         {
-            bool positionIsWithinBounds = index >= 0 && index <= names.Length - 1;
+            names[index] = null;
 
-            if (positionIsWithinBounds)
-            {
-                names[index] = null;
-
-                UpdateListBox();
-            }
+            UpdateListBox();
 
             PositionInput.Clear();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="message"></param>
+        private void ShowMessage(string message)
+        {
+            MessageLabel.Visible = true;
+
+            MessageLabel.Text = message;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private void HideMessage()
+        {
+            MessageLabel.Visible = false;
+
+            MessageLabel.Text = null;
         }
 
         /// <summary>
@@ -87,11 +104,14 @@ namespace ExtendedProgrammingHandInAssignment1
         /// <param name="e"></param>
         private void AddNameButton_Click(object sender, EventArgs e)
         {
+            HideMessage();
+
             string name = NameInput.Text;
 
             if (string.IsNullOrEmpty(name))
             {
-                // @todo: Add visual indicator and message regarding empty name input
+                ShowMessage("You need to enter a name.");
+
                 return;
             }
 
@@ -105,15 +125,26 @@ namespace ExtendedProgrammingHandInAssignment1
         /// <param name="e"></param>
         private void DeletePositionButton_Click(object sender, EventArgs e)
         {
+            HideMessage();
+
             string position = PositionInput.Text;
 
             if (int.TryParse(position, out int index))
             {
-                RemoveNameAt(index);
+                bool positionIsWithinBounds = index >= 0 && index <= names.Length - 1;
+
+                if (positionIsWithinBounds)
+                {
+                    RemoveNameAt(index);
+                }
+                else
+                {
+                    ShowMessage("The entered position does not exists");
+                }
             }
             else
             {
-                // @todo: Add visual indicator and message regarding empty name input
+                ShowMessage("You need to enter a number.");
             }
         }
     }

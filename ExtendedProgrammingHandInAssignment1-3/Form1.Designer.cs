@@ -37,6 +37,8 @@
             this.NameInput = new System.Windows.Forms.TextBox();
             this.SortAsc = new System.Windows.Forms.Button();
             this.SortDesc = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.MessageLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // NamesListBox
@@ -134,11 +136,30 @@
             this.SortDesc.UseVisualStyleBackColor = true;
             this.SortDesc.Click += new System.EventHandler(this.SortDesc_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(400, 215);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(0, 15);
+            this.label4.TabIndex = 9;
+            // 
+            // MessageLabel
+            // 
+            this.MessageLabel.AutoSize = true;
+            this.MessageLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.MessageLabel.Location = new System.Drawing.Point(45, 334);
+            this.MessageLabel.Name = "MessageLabel";
+            this.MessageLabel.Size = new System.Drawing.Size(0, 21);
+            this.MessageLabel.TabIndex = 11;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.MessageLabel);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.SortDesc);
             this.Controls.Add(this.SortAsc);
             this.Controls.Add(this.NameInput);
@@ -166,6 +187,8 @@
         private System.Windows.Forms.TextBox NameInput;
         private System.Windows.Forms.Button SortAsc;
         private System.Windows.Forms.Button SortDesc;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label MessageLabel;
     }
 }
 

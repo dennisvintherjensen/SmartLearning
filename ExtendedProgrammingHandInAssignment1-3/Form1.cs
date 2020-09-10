@@ -20,6 +20,10 @@ namespace ExtendedProgrammingHandInAssignment1_3
         {
             InitializeComponent();
 
+            MessageLabel.Visible = false;
+
+            MessageLabel.ForeColor = Color.Red;
+
             listDataSource.DataSource = names;
 
             NamesListBox.DataSource = listDataSource;
@@ -72,15 +76,38 @@ namespace ExtendedProgrammingHandInAssignment1_3
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="message"></param>
+        private void ShowMessage(string message)
+        {
+            MessageLabel.Visible = true;
+
+            MessageLabel.Text = message;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private void HideMessage()
+        {
+            MessageLabel.Visible = false;
+
+            MessageLabel.Text = null;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void AddNameButton_Click(object sender, EventArgs e)
         {
+            HideMessage();
+
             string name = NameInput.Text;
 
             if (string.IsNullOrEmpty(name))
             {
-                // @todo: Add visual indicator and message regarding empty name input
+                ShowMessage("You need to enter a name.");
 
                 return;
             }
@@ -95,9 +122,11 @@ namespace ExtendedProgrammingHandInAssignment1_3
         /// <param name="e"></param>
         private void DeletePositionButton_Click(object sender, EventArgs e)
         {
+            HideMessage();
+
             if (NamesListBox.SelectedIndex == -1)
             {
-                // @todo: Add visual indicator and message regarding name not being selected
+                ShowMessage("You need to select a name.");
 
                 return;
             }

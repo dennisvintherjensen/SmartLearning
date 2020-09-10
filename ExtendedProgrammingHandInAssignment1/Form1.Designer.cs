@@ -36,6 +36,7 @@
             this.DeletePositionButton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.NamesListBox = new System.Windows.Forms.ListBox();
+            this.MessageLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // PositionInput
@@ -121,11 +122,20 @@
             this.NamesListBox.Size = new System.Drawing.Size(216, 319);
             this.NamesListBox.TabIndex = 8;
             // 
+            // MessageLabel
+            // 
+            this.MessageLabel.AutoSize = true;
+            this.MessageLabel.Location = new System.Drawing.Point(64, 331);
+            this.MessageLabel.Name = "MessageLabel";
+            this.MessageLabel.Size = new System.Drawing.Size(0, 21);
+            this.MessageLabel.TabIndex = 12;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(910, 463);
+            this.Controls.Add(this.MessageLabel);
             this.Controls.Add(this.NamesListBox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.DeletePositionButton);
@@ -153,6 +163,7 @@
         private System.Windows.Forms.Button DeletePositionButton;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ListBox NamesListBox;
+        private System.Windows.Forms.Label MessageLabel;
     }
 }
 

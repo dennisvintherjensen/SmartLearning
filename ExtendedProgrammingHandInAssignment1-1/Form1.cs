@@ -17,6 +17,10 @@ namespace ExtendedProgrammingHandInAssignment1_1
         public Form1()
         {
             InitializeComponent();
+
+            MessageLabel.Visible = false;
+
+            MessageLabel.ForeColor = Color.Red;
         }
 
         /// <summary>
@@ -64,14 +68,30 @@ namespace ExtendedProgrammingHandInAssignment1_1
         /// <param name="index"></param>
         private void RemoveNameAt(int index)
         {
-            bool positionIsWithinBounds = index >= 0 && index <= names.Length - 1;
+            names[index] = null;
 
-            if (positionIsWithinBounds)
-            {
-                names[index] = null;
+            UpdateListBox();
+        }
 
-                UpdateListBox();
-            }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="message"></param>
+        private void ShowMessage(string message)
+        {
+            MessageLabel.Visible = true;
+
+            MessageLabel.Text = message;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private void HideMessage()
+        {
+            MessageLabel.Visible = false;
+
+            MessageLabel.Text = null;
         }
 
         /// <summary>
@@ -81,11 +101,14 @@ namespace ExtendedProgrammingHandInAssignment1_1
         /// <param name="e"></param>
         private void AddNameButton_Click(object sender, EventArgs e)
         {
+            HideMessage();
+
             string name = NameInput.Text;
 
             if (string.IsNullOrEmpty(name))
             {
-                // @todo: Add visual indicator and message regarding empty name input
+                ShowMessage("You need to enter a name.");
+
                 return;
             }
 
@@ -99,7 +122,16 @@ namespace ExtendedProgrammingHandInAssignment1_1
         /// <param name="e"></param>
         private void DeletePositionButton_Click(object sender, EventArgs e)
         {
+            HideMessage();
+
             string selectedListItem = NamesListBox.SelectedItem as string;
+
+            if (string.IsNullOrEmpty(selectedListItem))
+            {
+                ShowMessage("You need to select a name.");
+
+                return;
+            }
 
             string position = selectedListItem.Split(':')[0];
 
@@ -109,7 +141,7 @@ namespace ExtendedProgrammingHandInAssignment1_1
             }
             else
             {
-                // @todo: Add visual indicator and message regarding empty name input
+                ShowMessage("An error occurred.");
             }
         }
     }
